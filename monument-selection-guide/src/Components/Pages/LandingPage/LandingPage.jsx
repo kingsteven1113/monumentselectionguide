@@ -2,6 +2,12 @@ import React from 'react'
 import './LandingPage.css'
 
 const LandingPage = () => {
+  const OpenNextPage = () => {
+    const Cemetery = document.getElementById("CemeteryPage")
+      Cemetery.style.display = "block"
+    const WelcomePage = document.getElementById("Welcome")
+      WelcomePage.style.display = "none"
+  }
   return (
     <div className='Welcome'>
         <h1>Welcome to the Monument Selection Guide</h1>
