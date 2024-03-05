@@ -1,0 +1,33 @@
+h1 {
+    font-family: "Poppins", sans-serif;
+    color: black;
+}
+
+.Welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Line {
+
+    height: 4px;
+    width: 75%;
+    background-color: #D3AE29;
+    
+    
+}
+
+.Description {
+    font-size: 24px;
+    font-family: "Poppins", sans-serif;
+    color: black;
+    margin: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.GetStarted {
+    padding: 20px 60px 20px 60px;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+}
