@@ -8,19 +8,26 @@ const CemeteryPage = () => {
     const Budget = document.getElementById("Budget")
       Budget.style.display = "none"
   }
+  
+const SetCemetery = (ListItem) => {
+	localStorage.setItem("Cemetery", ListItem.value)
+  
+}
   return (
+    <>
     <div className='Header'>
         <h1>What <span>cemetery</span> is this stone going to?</h1>
        <div className='Line'></div>
-      <div>
-        <ul>
-
-          // Need to make a Cemetery API and call it so that we don't need to write them all in individually.
-          
-        </ul>
-      </div>
-       
     </div>
+     <div class="CemeteryList">
+        <button class="ListItem" onclick="SetCemetery(this)" value="St. Anthony's Cemetery">
+        St Anthony's Cemetery
+        </button>
+        <button class="ListItem" onclick="SetCemetery(this)" value="Hillside Cemetery">
+       Hillside Cemetery
+        </button>
+      </div>
+    </>
   )
 }
 
