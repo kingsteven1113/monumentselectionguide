@@ -1,0 +1,22 @@
+.ListItem {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0px 5px 5px #D3AE2950);
+  border: none;
+  background-color: #fff;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+.ListItem:hover {
+  background-color: #00000050;
+}
+.CemeteryList {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  
+  
+}
