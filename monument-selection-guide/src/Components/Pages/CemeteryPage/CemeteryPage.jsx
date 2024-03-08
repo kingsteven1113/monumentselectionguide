@@ -237,7 +237,7 @@ function setCemetery(value) {
         </li>
       </div>
 
-      <NavLink to="/cemetery"><button className='GetStarted'> Get Started</button></NavLink>
+      <NavLink to="/cemetery"><button className='GetStarted'>Next</button></NavLink>
 
     </>
   )
