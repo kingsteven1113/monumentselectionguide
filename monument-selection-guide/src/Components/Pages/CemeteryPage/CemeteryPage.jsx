@@ -4,8 +4,9 @@ import './CemeteryPage.css'
 const CemeteryPage = () => {
  
   
-const setCemetery = (ListItem) => {
-	localStorage.setItem("Cemetery", ListItem.value)
+function setCemetery(value) {
+  
+	localStorage.setItem("Cemetery", value)
 
 }
   return (
@@ -15,12 +16,12 @@ const setCemetery = (ListItem) => {
        <div className='Line'></div>
     </div>
      <div class="CemeteryList">
-        <button className="ListItem" value="St. Anthony's Cemetery" onClick={function(){setCemetery(this)}}>
+        <div className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
         St Anthony's Cemetery
-        </button>
-        <button className="ListItem" onClick={setCemetery}>
+        </div>
+        <div className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
        Hillside Cemetery
-        </button>
+        </div>
       </div>
 	    
     </>
