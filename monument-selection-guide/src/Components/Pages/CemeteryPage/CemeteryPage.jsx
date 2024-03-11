@@ -2,7 +2,7 @@ import React from 'react'
 import './CemeteryPage.css'
 
 
-onst USERS = [
+const USERS = [
   { id: 1, name: 'St. Raymonds Cemetery', },
   { id: 2, name: 'Woodlawn Cemetery', },
   { id: 3, name: 'Kensico Cemetery', },
