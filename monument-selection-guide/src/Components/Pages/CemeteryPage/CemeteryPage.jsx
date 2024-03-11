@@ -2,27 +2,96 @@ import React from 'react'
 import './CemeteryPage.css'
 
 
+onst USERS = [
+  { id: 1, name: 'St. Raymonds Cemetery', },
+  { id: 2, name: 'Woodlawn Cemetery', },
+  { id: 3, name: 'Kensico Cemetery', },
+  { id: 4, name: 'Mt. Pleasant Cemetery',},
+  { id: 5, name: 'Gate of Heaven Cemetery', },
+  { id: 6, name: 'St. Francis Cemetery', },
+  { id: 7, name: 'Oakwood Cemetery', },
+  { id: 8, name: 'Mt. Calvary Cemetery', },
+  { id: 9, name: 'Sleepy Hollow Cemetery', },
+  { id: 10, name: 'Sharon Gardens Cemetery', },
+  { id: 11, name: 'St. Lawrence OToole Cemetery', },
+  { id: 12, name: 'Raymond Hill Cemetery', },
+  { id: 13, name: 'Mt. Eden Cemetery', },
+  { id: 14, name: 'Mt. Hope Cemetery', },
+  { id: 15, name: 'Bethel Cemetery', },
+  { id: 16, name: 'Amawalk Hill Cemetery', },
+  { id: 17, name: 'Queen of Peace Cemetery', },
+  { id: 18, name: 'Center Cemetery', },
+  { id: 19, name: 'Holy Rood Cemetery', },
+  { id: 20, name: 'Evergreen Cemetery', },
+  { id: 21, name: 'Fairview Cemetery', },
+  { id: 22, name: 'Middle Patent Rural Cemetery', },
+  { id: 23, name: 'South Salem Cemetery', },
+  { id: 24, name: 'Ivandell Cemetery', },
+  { id: 25, name: 'St. Marys Cemetery', },
+  { id: 26, name: 'St. Johns Cemetery(Darien)', },
+  { id: 27, name: 'St. Josephs Cemetery(Yonkers)', },
+  { id: 28, name: 'Fair Ridge Cemetery(Chappaqua)', },
+  { id: 29, name: 'White Plains Rural Cemetery', },
+  { id: 30, name: 'Spring Grove Cemetery', },
+  { id: 31, name: 'Woodland Cemetery', },
+  { id: 32, name: 'Riverside Cemetery(Norwalk)', },
+  { id: 33, name: 'Cold Spring Cemetery', },
+  { id: 34, name: 'Buxton Cemetery', },
+  { id: 35, name: 'Cedar Hill Cemetery', },
+  { id: 36, name: 'Mt. Repose Cemetery', },
+  { id: 37, name: 'Oakland Cemetery', },
+  { id: 38, name: 'Rose Hills Cemetery', },
+  { id: 39, name: 'Hillside Cemetery(New Jersey)', },
+  { id: 40, name: 'Mt. Moriah Cemetery', },
+  { id: 41, name: 'Holy Sepulchre Cemetery(New Rochelle)', },
+  { id: 42, name: 'Beechwood Cemetery', },
+  { id: 43, name: 'Hillside Cemetery(Cortlandt Manor)', },
+  { id: 44, name: 'Assumption Cemetery', },
+  { id: 45, name: 'St. Augustine Cemetery', },
+  { id: 46, name: 'Dale Cemetery', },
+  { id: 47, name: 'Pound Ridge Cemetery', },
+  { id: 48, name: 'Bedford Union Cemetery', },
+  { id: 49, name: 'St. Josephs Cemetery(Somers)', },
+  { id: 50, name: 'St. Johns Cemetery(Norwalk)', },
+  { id: 51, name: 'Lakeview Cemetery', },
+  { id: 52, name: 'Maple Avenue Cemetery', },
+  { id: 53, name: 'Gate of Heaven Cemetery(New Jersey)', },
+  { id: 54, name: 'Brookside Cemetery', },
+  { id: 55, name: 'Mt. Carmel Cemetery', },
+  { id: 56, name: 'Mary Rest Cemetery(Mahwah, NJ)', },
+  { id: 57, name: 'St. Josephs Cemetery(Hackensack, NJ)', },
+  { id: 58, name: 'Bloomfield Cemetery', },
+  { id: 59, name: 'Maple Grove Cemetery', },
+  { id: 60, name: 'Holy Cross Cemetery(Arlington)', },
+  { id: 61, name: 'Fishkill Rural Cemetery', },
+
+];
+
+
 const CemeteryPage = () => {
 
+   const [name, setName] = useState('');
 
-  const SearchFilter = () => {
-    // (A) GET HTML ELEMENTS
-    var filter = document.getElementById("myInput"), // search box
-        list = document.querySelectorAll("#CemeteryList li"); // all list items
-    // (B) ATTACH KEY UP LISTENER TO SEARCH BOX
-    filter.onkeyup = () => {
-      // (B1) GET CURRENT SEARCH TERM
-      let search = filter.value.toLowerCase();
-      // (B2) LOOP THROUGH LIST ITEMS - ONLY SHOW THOSE THAT MATCH SEARCH
-      for (let i of list) {
-        let item = i.innerHTML.toLowerCase();
-        if (item.indexOf(search) == -1) { i.classList.add("hide"); }
-        else { i.classList.remove("hide"); }
-      }
-    };
-  }
+  // the search result
+  const [foundUsers, setFoundUsers] = useState(USERS);
 
-window.onload = SearchFilter();
+  const filter = (e) => {
+    const keyword = e.target.value;
+
+    if (keyword !== '') {
+      const results = USERS.filter((user) => {
+        return user.name.toLowerCase().startsWith(keyword.toLowerCase());
+        // Use the toLowerCase() method to make it case-insensitive
+      });
+      setFoundUsers(results);
+    } else {
+      setFoundUsers(USERS);
+      // If the text field is empty, show all users
+    }
+
+    setName(keyword);
+  };
+
 
 function setCemetery(value) {
 
@@ -39,206 +108,20 @@ function setCemetery(value) {
        <center><div className='Line'></div></center>
     </div>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for a cemetery..." title="Type in a cemetery"/>
-     <div class="CemeteryList" id='CemeteryList'>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        St Anthony's Cemetery
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-       Hillside Cemetery
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        St. Raymonds Cemetery (Bronx)
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Woodlawn Cemetery (Bronx) 
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Kensico Cemetery (Valhalla)
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Mt. Pleasant Cemetery (Valhalla) 
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Gate of Heaven Cemetery (Valhalla) 
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        St. Francis Cemetery (Mt. Kisco) 
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Oakwood Cemetery (Mt. Kisco) 
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Mt. Calvary Cemetery (White Plains) 
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Sleepy Hollow Cemetery 
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Sharon Gardens Cemetery (Valhalla) 
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        St. Lawrence O'Toole Cemetery (Brewster) 
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Raymond Hill Cemetery
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Mt. Eden Cemetery
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Mt. Hope Cemetery
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Bethel Cemetery (Croton)
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Amawalk Hill Cemetery
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Queen of Peace Cemetery
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Center Cemetery
-        </li>
-        <li className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Holy Rood Cemetery (Morristown)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Evergreen Cemetery (Morristown)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Fairview Cemetery (Fairview)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Middle Patent Rural Cemetery (North Castle) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        South Salem Cemetery (South Salem) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Ivandell Cemetery (Somers) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        St. Mary's Cemetery (Bethel) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        St. John's Cemetery (Darien) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        St. Josephs Cemetery (Yonkers) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        St. Mary's Cemetery (Port Chester) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        St. Mary's Cemetery (Yonkers) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Fair Ridge Cemetery (Chappaqua) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        White Plains Rural Cemetery (White Plains) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Spring Grove Cemetery (Darien, CT)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Woodland Cemetery (Darien, CT)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Riverside Cemetery (Norwalk, CT) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Cold Spring Cemetery
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Buxton Cemetery
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Cedar Hill Cemetery
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Mt. Repose Cemetery
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Oakland Cemetery
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Rose Hills Cemetery
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Hillside Cemetery (New Jersey)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Mt. Moriah Cemetery (Fairview)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Holy Sepulchre Cemetery (New Rochelle) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Beechwood Cemetery (New Rochelle)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Hillside Cemetery (Cortlandt Manor) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Assumption Cemetery (Cortlandt Manor) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        St. Augustine Cemetery (Ossining) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Dale Cemetery (Ossining) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Pound Ridge Cemetery (Pound Ridge) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Bedford Union Cemetery (Bedford) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        St. Joseph's Cemetery (Somers) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        St. John's Cemetery (Norwalk) 
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Lakeview Cemetery (New Canaan, CT)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Maple Avenue Cemetery
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Gate Of Heaven (New Jersey)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Brookside Cemetery (Saddlebrook)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Mt. Carmel Cemetery (Saddlebrook)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Mary Rest Cemetery (Mahwah)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        St Josephs Cemetery (Hackensack)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Bloomfield Cemetery (Bloomfield)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Maple Grove Cemetery (Hackensack)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Holy Cross Cemetery (Arlington)
-        </li>
-        <li  className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}>
-        Fishkill Rural Cemetery (Fishkill)
-        </li>
-      </div>
+     
 
-      <NavLink to="/cemetery"><button className='GetStarted'>Next</button></NavLink>
-
+        {foundUsers && foundUsers.length > 0 ? (
+          foundUsers.map((user) => (
+            <div class="CemeteryList">
+            <li key={user.id} className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}> 
+              {user.name}
+            </li>
+            </div>
+             <NavLink to="/cemetery"><button className='GetStarted'>Next</button></NavLink>
+          ))
+        ) : (
+          <h1>No results found!</h1>
+        )}
     </>
   )
 }
