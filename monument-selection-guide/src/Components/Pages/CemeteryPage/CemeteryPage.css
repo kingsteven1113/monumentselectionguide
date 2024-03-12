@@ -1,7 +1,7 @@
 .ListItem {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0px 5px 5px #D3AE2950);
+  filter: drop-shadow(0px 5px 5px #d3ae2950);
   border: none;
   background-color: #fff;
   color: black;
@@ -10,19 +10,19 @@
   padding-bottom: 10px;
   cursor: pointer;
   z-index: 1;
+  list-style: none;
+  padding-left: 20px;
 }
 .ListItem:hover {
   background-color: #00000050;
   color: white;
 }
 .CemeteryList {
-  width: 90%;
+  width: 90vw;
   display: flex;
   flex-direction: column;
   height: 40vh;
   overflow: auto;
-  
-  
 }
 
 .hide {
