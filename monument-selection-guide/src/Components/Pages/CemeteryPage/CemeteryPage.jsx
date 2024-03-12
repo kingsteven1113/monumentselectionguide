@@ -1,4 +1,6 @@
 import React from 'react'
+import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import './CemeteryPage.css'
 
 
@@ -96,6 +98,8 @@ const CemeteryPage = () => {
 function setCemetery(value) {
 
   localStorage.setItem("Cemetery", value)
+  let NextButton = document.getElementById('NextPage')
+  NextButton.style.display = 'block'
 
 }
 
@@ -107,21 +111,21 @@ function setCemetery(value) {
         <h1>What <span>cemetery</span> is this stone going to?</h1>
        <center><div className='Line'></div></center>
     </div>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for a cemetery..." title="Type in a cemetery"/>
-     
+    <input type="search" value={name} id="myInput" onChange={filter} placeholder="Search for a cemetery..." title="Type in a cemetery"/>
+    <div className="CemeteryList">
 
         {foundUsers && foundUsers.length > 0 ? (
           foundUsers.map((user) => (
-            <div class="CemeteryList">
+           
             <li key={user.id} className="ListItem" onClick={(e) => setCemetery(e.target.innerText)}> 
               {user.name}
             </li>
-            </div>
-             <NavLink to="/cemetery"><button className='GetStarted'>Next</button></NavLink>
           ))
         ) : (
           <h1>No results found!</h1>
         )}
+        </div>
+        <NavLink to="/cemetery" id='NextPage'><button className='GetStarted'>Next</button></NavLink>
     </>
   )
 }
