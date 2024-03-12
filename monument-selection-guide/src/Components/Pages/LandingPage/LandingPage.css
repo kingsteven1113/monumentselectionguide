@@ -1,47 +1,84 @@
-h1 {
-    font-family: "Poppins", sans-serif;
-    color: black;
+.Header {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.Welcome {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.ListItem {
+  width: auto;
+  height: auto;
+  filter: drop-shadow(0px 5px 5px #d3ae2950);
+  border: none;
+  background-color: #fff;
+  color: black;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  z-index: 1;
+  list-style: none;
+  padding-left: 20px;
+}
+.ListItem:hover {
+  background-color: #00000050;
+  color: white;
+}
+.CemeteryList {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  overflow: auto;
+  filter: drop-shadow(0px 5px 5px #d3ae2950);
+  border-radius: 10px;
+  margin: auto;
+}
+
+.hide {
+  display: none;
+}
+
+#NextPage {
+  display: none;
 }
 
 .Line {
-
-    height: 4px;
-    width: 75%;
-    background-color: #D3AE29;
-    
-    
+  height: 4px;
+  width: 75%;
+  background-color: #d3ae29;
 }
 
-.Description {
-    font-size: 24px;
-    font-family: "Poppins", sans-serif;
-    color: black;
-    margin: 5%;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-.GetStarted {
-    padding: 20px 60px 20px 60px;
-    font-family: "Poppins", sans-serif;
-    font-size: 20px;
-    transition: border-color 0.15s;
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.GetStarted:hover{
-     border-color: #D3AE29;
-     border-width: 3px;
-     
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000;
+  border-radius: 0px 5px 5px 0px;
 }
-.Notice {
-    font-size: 16px;
-    color: black;
-    font-family: "Poppins", sans-serif;
-    margin-top: 150px;
 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(212, 173, 0);
+  border-radius: 0px 2.5px 2.5px 0px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f7d600;
+  border-radius: 0px 2.5px 2.5px 0px;
+}
+.CemeterySearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  margin: auto;
 }
