@@ -1,12 +1,11 @@
-.Header {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 90vw;
-  margin-top: 20px;
-  margin-bottom: 20px;
+span {
+  font-weight: 700;
+  
+}
+
+h1 {
+  font-weight: 500;
+  padding-bottom: 15px;
 }
 
 .ListItem {
@@ -29,14 +28,16 @@
   color: white;
 }
 .CemeteryList {
-  width: 90vw;
+  width: auto;
   display: flex;
   flex-direction: column;
   height: 40vh;
   overflow: auto;
   filter: drop-shadow(0px 5px 5px #d3ae2950);
   border-radius: 10px;
-  margin: auto;
+  margin-bottom: 35px;
+  
+  
 }
 
 .hide {
@@ -45,33 +46,36 @@
 
 #NextPage {
   display: none;
+  
 }
 
 .Line {
   height: 4px;
   width: 75%;
   background-color: #d3ae29;
+  margin: auto;
+  margin-bottom: 30px;
 }
 
 /* width */
-::-webkit-scrollbar {
+.CemeteryList::-webkit-scrollbar {
   width: 10px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+.CemeteryList::-webkit-scrollbar-track {
   background: #000;
   border-radius: 0px 5px 5px 0px;
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+.CemeteryList::-webkit-scrollbar-thumb {
   background: rgb(212, 173, 0);
   border-radius: 0px 2.5px 2.5px 0px;
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+.CemeteryList::-webkit-scrollbar-thumb:hover {
   background: #f7d600;
   border-radius: 0px 2.5px 2.5px 0px;
 }
@@ -79,6 +83,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90vw;
-  margin: auto;
+  width: 100%;
+  background-color: #fff;
+  color: #000000;
+  border: none;
+  padding: 15px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  filter: drop-shadow(0px 5px 5px #634d0050);
+  border-radius: 20px;
+}
+.CemeterySearch:focus {
+  border: none;
+}
+
+h2 {
+  color: #000;
 }

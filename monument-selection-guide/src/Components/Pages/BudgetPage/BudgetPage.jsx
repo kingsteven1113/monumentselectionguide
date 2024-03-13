@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
+import './BudgetPage.css'
 
-const BudgetChoices = () => {
+const BudgetPage = () => {
   const [selectedBudget, setSelectedBudget] = useState(null);
 
   const handleBudgetSelection = (budget) => {
     setSelectedBudget(budget);
-    localStorage.setItem('selectedBudget', budget);
+    localStorage.setItem('Budget', budget);
   };
 
   return (
     <div>
-      <h2>Choose a Budget:</h2>
-      <ul>
-        <li onClick={() => handleBudgetSelection('Budget 1')}>Budget 1</li>
-        <li onClick={() => handleBudgetSelection('Budget 2')}>Budget 2</li>
-        <li onClick={() => handleBudgetSelection('Budget 3')}>Budget 3</li>
-        <li onClick={() => handleBudgetSelection('Budget 4')}>Budget 4</li>
-        <li onClick={() => handleBudgetSelection('Budget 5')}>Budget 5</li>
+      <h1>What is your <span>budget</span>?</h1>
+      <div className='Line'></div>
+      <ul className='BudgetOptions'>
+        <li className='ListItem' onClick={() => handleBudgetSelection('$1000-$2000')}>$1000-$2000</li>
+        <li className='ListItem' onClick={() => handleBudgetSelection('$2000-$3000')}>$2000-$3000</li>
+        <li className='ListItem' onClick={() => handleBudgetSelection('$3000-$4000')}>$3000-$4000</li>
+        <li className='ListItem' onClick={() => handleBudgetSelection('$4000-$5000')}>$4000-$5000</li>
+        <li className='ListItem' onClick={() => handleBudgetSelection('$5000+')}>$5000+</li>
       </ul>
-      {selectedBudget && <p>Selected Budget: {selectedBudget}</p>}
+      {selectedBudget && <h2> Your Selected Budget: <span>{selectedBudget}</span></h2>}
     </div>
   );
 };
-
-export default BudgetChoices;
+<NavLink to='/budget' id="NextPage">
+        <button className="GetStarted">Next</button>
+      </NavLink>
+export default BudgetPage;

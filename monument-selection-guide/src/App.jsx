@@ -5,6 +5,7 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import './App.css'
 import LandingPage from './Components/Pages/LandingPage/LandingPage'
 import CemeteryPage from './Components/Pages/CemeteryPage/CemeteryPage'
+import BudgetPage from './Components/Pages/BudgetPage/BudgetPage'
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path='/' element={<LandingPage/>}></Route>
         <Route path='/cemetery' element={<CemeteryPage/>}></Route>
+        <Route path='/budget' element={<BudgetPage/>}></Route>
       </Routes>
       </BrowserRouter>
     </>

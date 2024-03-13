@@ -1,1 +1,46 @@
+span {
+    font-weight: 700;
+  }
+  
+  h1 {
+    font-size: 65px;
+    font-weight: 500;
+    padding-bottom: 15px;
+    font-family: "Poppins", sans-serif;
+    color: black;
+  }
 
+  h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    
+  }
+
+  .ListItem {
+    padding: 20px 60px 20px 60px;
+  font-family: "Poppins", sans-serif;
+  background-color: #a58701;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  transition: background-color 0.15s;
+  }
+  .ListItem:hover {
+    background-color: #e6c300;
+    color: #000;
+  }
+
+  .Line {
+    height: 4px;
+    width: 75%;
+    background-color: #d3ae29;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+
+  .BudgetOptions {
+    margin: 10px;
+
+  }
+  
