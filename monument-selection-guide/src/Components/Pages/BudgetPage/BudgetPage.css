@@ -43,4 +43,8 @@ span {
     margin: 10px;
 
   }
+
+  #NextPage {
+    display: none;
+  }
   

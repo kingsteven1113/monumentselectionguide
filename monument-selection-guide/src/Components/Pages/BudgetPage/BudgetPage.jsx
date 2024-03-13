@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import './BudgetPage.css'
 
 const BudgetPage = () => {
@@ -7,6 +8,8 @@ const BudgetPage = () => {
   const handleBudgetSelection = (budget) => {
     setSelectedBudget(budget);
     localStorage.setItem('Budget', budget);
+    let NextButton = document.getElementById("NextPage");
+    NextButton.style.display = "block";
   };
 
   return (
@@ -21,10 +24,12 @@ const BudgetPage = () => {
         <li className='ListItem' onClick={() => handleBudgetSelection('$5000+')}>$5000+</li>
       </ul>
       {selectedBudget && <h2> Your Selected Budget: <span>{selectedBudget}</span></h2>}
-    </div>
-  );
-};
-<NavLink to='/budget' id="NextPage">
+      <NavLink to='/budget' id="NextPage">
         <button className="GetStarted">Next</button>
       </NavLink>
+    </div>
+    
+  );
+};
+
 export default BudgetPage;
