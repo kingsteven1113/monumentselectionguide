@@ -68,6 +68,8 @@ const USERS = [
   { id: 62, name: "St. Anthony's Cemetery" },
 ];
 
+
+
 const CemeteryPage = () => {
   const [name, setName] = useState("");
 
@@ -90,12 +92,15 @@ const CemeteryPage = () => {
 
     setName(keyword);
   };
+  
+  const [selectedCemetery, setSelectedCemetery] = useState(null);
 
-  function setCemetery(value) {
-    localStorage.setItem("Cemetery", value);
+  const handleCemeterySelection = (value) => {
+    setSelectedCemetery(value);
+    localStorage.setItem("Cemetery", value)
     let NextButton = document.getElementById("NextPage");
     NextButton.style.display = "block";
-  }
+  };
 
   return (
     <>
@@ -119,7 +124,7 @@ const CemeteryPage = () => {
             <li
               key={user.id}
               className="ListItem"
-              onClick={(e) => setCemetery(e.target.innerText)}
+              onClick={(e) => handleCemeterySelection(e.target.innerText)}
             >
               {user.name}
             </li>
@@ -128,6 +133,7 @@ const CemeteryPage = () => {
           <h2>No results found!</h2>
         )}
       </div>
+      <h2>Selected Cemetery: <span id="CurrentCemetery">{selectedCemetery}</span></h2>
       <NavLink to='/budget' id="NextPage">
         <button className="GetStarted">Next</button>
       </NavLink>

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import SingleUpright from ''
 
-const ChoicesWithImages = () => {
+const StoneTypePage = () => {
   const choices = [
-    { name: 'Choice 1', imageUrl: 'image1.jpg' },
-    { name: 'Choice 2', imageUrl: 'image2.jpg' },
-    { name: 'Choice 3', imageUrl: 'image3.jpg' },
-    { name: 'Choice 4', imageUrl: 'image4.jpg' },
-    { name: 'Choice 5', imageUrl: 'image5.jpg' },
+    { name: 'Single Upright Headstone', imageUrl: 'image1.jpg' },
+    { name: 'Flush Marker', imageUrl: 'image2.jpg' },
+    { name: 'Slant Marker', imageUrl: 'image3.jpg' },
+    { name: 'Double Upright Headstone', imageUrl: 'image4.jpg' },
+    { name: 'Hickey Marker', imageUrl: 'image5.jpg' },
+    { name: 'Bronze Marker', imageUrl: 'image5.jpg' },
+
   ];
 
   const [selectedChoice, setSelectedChoice] = useState(null);
@@ -21,9 +24,13 @@ const ChoicesWithImages = () => {
       <h2>Choose an Option:</h2>
       <ul>
         {choices.map((choice, index) => (
-          <li key={index} onClick={() => handleChoiceSelection(choice)}>
-            {choice.name}
-            <img src={choice.imageUrl} alt={choice.name} style={{ width: '100px', height: '100px' }} />
+          <li key={index} className='StoneTypeOption'>
+            <div>
+              <h3>{choice.name}</h3>
+              <button className='SelectButton' onClick={() => handleChoiceSelection(choice)}>Select</button>
+              </div>
+            
+            <img src={choice.imageUrl} alt={choice.name} style={{ width: '50%', height: 'auto' }} />
           </li>
         ))}
       </ul>
@@ -32,4 +39,4 @@ const ChoicesWithImages = () => {
   );
 };
 
-export default ChoicesWithImages;
+export default StoneTypePage;
