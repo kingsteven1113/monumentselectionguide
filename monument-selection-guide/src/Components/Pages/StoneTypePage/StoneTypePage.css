@@ -1,1 +1,27 @@
+.StoneTypeOption {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+    height: 40vh;
+    width:90%;
+    margin-bottom: 50px;
+}
 
+.StoneInfo {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    
+}
+.StoneImage {
+    width: auto;
+    object-fit: cover;
+    width: 50%;
+    
+}
+
+ul {
+    padding: 0px;
+    width: 100%;
+}

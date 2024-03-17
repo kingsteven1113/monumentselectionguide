@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
-import SingleUpright from ''
+import './StoneTypePage.css'
+import SingleUpright from '../../../assets/Cunha-Front-1920w.jpg'
+import SlantMarker from '../../../assets/Dorsett-1920w.jpg'
+import DoubleUpright from '../../../assets/Edelstein-1920w.jpg'
+import BronzeMarker from '../../../assets/Molella-1920w.jpg'
+import FlushMarker from '../../../assets/Samuels-1920w.jpg'
+import HickeyMarker from '../../../assets/Speer500-1920w.jpg'
+
 
 const StoneTypePage = () => {
   const choices = [
-    { name: 'Single Upright Headstone', imageUrl: 'image1.jpg' },
-    { name: 'Flush Marker', imageUrl: 'image2.jpg' },
-    { name: 'Slant Marker', imageUrl: 'image3.jpg' },
-    { name: 'Double Upright Headstone', imageUrl: 'image4.jpg' },
-    { name: 'Hickey Marker', imageUrl: 'image5.jpg' },
-    { name: 'Bronze Marker', imageUrl: 'image5.jpg' },
+    { name: 'Single Upright Headstone', imageUrl: SingleUpright },
+    { name: 'Flush Marker', imageUrl: FlushMarker },
+    { name: 'Slant Marker', imageUrl: SlantMarker },
+    { name: 'Double Upright Headstone', imageUrl: DoubleUpright },
+    { name: 'Hickey Marker', imageUrl: HickeyMarker },
+    { name: 'Bronze Marker', imageUrl: BronzeMarker },
 
   ];
+
+  
 
   const [selectedChoice, setSelectedChoice] = useState(null);
 
   const handleChoiceSelection = (choice) => {
     setSelectedChoice(choice.name);
-    localStorage.setItem('selectedChoice', choice.name);
+    localStorage.setItem('StoneType', choice.name);
   };
 
   return (
@@ -25,12 +34,12 @@ const StoneTypePage = () => {
       <ul>
         {choices.map((choice, index) => (
           <li key={index} className='StoneTypeOption'>
-            <div>
+            <div className='StoneInfo'>
               <h3>{choice.name}</h3>
               <button className='SelectButton' onClick={() => handleChoiceSelection(choice)}>Select</button>
               </div>
             
-            <img src={choice.imageUrl} alt={choice.name} style={{ width: '50%', height: 'auto' }} />
+            <img className='StoneImage' src={choice.imageUrl} title={choice.imageUrl} alt={choice.name} />
           </li>
         ))}
       </ul>

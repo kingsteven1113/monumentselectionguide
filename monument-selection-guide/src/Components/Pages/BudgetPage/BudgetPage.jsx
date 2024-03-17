@@ -8,7 +8,6 @@ const BudgetPage = () => {
   const handleBudgetSelection = (budget) => {
     setSelectedBudget(budget);
     localStorage.setItem('Budget', budget);
-    budget.target.style.backgroundColor = "#000000"
     let NextButton = document.getElementById("NextPage");
     NextButton.style.display = "block";
   };
