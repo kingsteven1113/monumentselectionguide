@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from "react-router-dom";
 import './StoneTypePage.css'
 import SingleUpright from '../../../assets/Cunha-Front-1920w.jpg'
 import SlantMarker from '../../../assets/Dorsett-1920w.jpg'
@@ -56,6 +57,8 @@ let modal = document.getElementById("myModal");
   const handleChoiceSelection = (choice) => {
     setSelectedChoice(choice.name);
     localStorage.setItem('StoneType', choice.name);
+    let NextButton = document.getElementById("NextPage");
+    NextButton.style.display = "block";
   };
 
   
@@ -89,7 +92,11 @@ let modal = document.getElementById("myModal");
           </li>
         ))}
       </ul>
-      {selectedChoice && <p>Selected Choice: {selectedChoice}</p>}
+      {selectedChoice && <p className='Selection'>Selected Choice: <span className='SelectionValue'>{selectedChoice}</span></p>}
+      
+      <NavLink to='/budget' id="NextPage">
+        <button className="GetStarted">Next</button>
+      </NavLink>
     </div>
     
   );
