@@ -12,16 +12,14 @@ import HickeyMarker from '../../../assets/Speer500-1920w.jpg'
 const StoneTypePage = () => {
   const choices = [
     { name: 'Single Upright Headstone', imageUrl: SingleUpright, description: "Most Common Style. Upright stone, typically with a base below it. Usually used to have 1-2 people's names added to it" },
-    { name: 'Flush Marker', imageUrl: FlushMarker, description : "Cheapest option. Flat stone that is flush with the groudn, hence the name Flush Marker. Typically 2ft wide by 1ft front to back." },
-    { name: 'Slant Marker', imageUrl: SlantMarker, description : "The perfect in-between stone. This stone can be by itself or have a base below it. It is one step up from a hickey marker but is still smaller than a Upright stone." },
+    { name: 'Flush Marker', imageUrl: FlushMarker, description : "Cheapest option. Flat stone that is flush with the ground, hence the name Flush Marker. Typically 2ft wide by 1ft front to back." },
+    { name: 'Slant Marker', imageUrl: SlantMarker, description : "The perfect in-between stone. This stone can be by itself or have a base below it. It is one step up from a hickey marker but is still smaller than an Upright stone." },
     { name: 'Double Upright Headstone', imageUrl: DoubleUpright, description: "Same as the Single Upright but it is a lot wider to add more names. Typically used for large family plots or for two seperate graves side by side." },
     { name: 'Hickey Marker', imageUrl: HickeyMarker, description: "This is a flush marker but it is typically 2-4 inches taller than the flush marker and also has a bit of a slant to it. " },
-    { name: 'Bronze Marker', imageUrl: BronzeMarker, description: "The Bronze Marker is a manufactured piece of bronze" },
+    { name: 'Bronze Marker', imageUrl: BronzeMarker, description: "The Bronze Marker is a manufactured piece of bronze attached to a piece of granite." },
 
   ];
 
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [selectedAltText, setSelectedAltText] = useState(null);
 
 const modalSite = (event) =>{ 
 
@@ -80,21 +78,23 @@ let modal = document.getElementById("myModal");
       
       <h1>What <span>type of stone</span> would you like?</h1>
       <div className='Line'></div>
-      <ul>
+      <ul className='TypeOptions'>
         {choices.map((choice, index) => (
           <li key={index} className='StoneTypeOption'>
             <div className='StoneInfo'>
               <h3>{choice.name}</h3>
+              <p className='TypeDescription'>{choice.description}</p>
               <button className='SelectButton' onClick={() => handleChoiceSelection(choice)}>Select</button>
               </div>
             
             <img className='StoneImage' src={choice.imageUrl} title={choice.name} alt={choice.name} onClick={(event)=> modalSite(event)}/>
+            
           </li>
         ))}
       </ul>
       {selectedChoice && <p className='Selection'>Selected Choice: <span className='SelectionValue'>{selectedChoice}</span></p>}
       
-      <NavLink to='/budget' id="NextPage">
+      <NavLink to='/stoneshape' id="NextPage">
         <button className="GetStarted">Next</button>
       </NavLink>
     </div>
